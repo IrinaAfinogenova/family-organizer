@@ -12,7 +12,7 @@ export default function Navigation() {
   return (
     <nav className="
       flex md:flex-col md:w-56 md:h-auto bg-white w-full
-      md:relative fixed bottom-0 right-0 w-full md:top-auto md:left-auto md:justify-start justify-around
+      w-full md:top-auto md:left-auto md:justify-start justify-around
       border-t border-gray-200 md:border-t-0 md:border-r shadow-sm"
     >
       {menuItems.map((item) => (

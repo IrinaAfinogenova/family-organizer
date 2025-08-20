@@ -6,11 +6,11 @@ import './App.css';
 export default function App() {
   return (
     <Router>
-      <div className="App">
-        <main className="flex flex-row justify-around">
+      <div className="flex flex-col-reverse md:flex-row h-screen">
+        <Navigation />
+        <main className="flex-1 flex justify-center p-4 md:ml-56">
           <AppRouter />
         </main>
-        <Navigation />
       </div>
     </Router>
   );
