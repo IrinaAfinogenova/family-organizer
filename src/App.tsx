@@ -1,15 +1,17 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import AppRouter from './Router';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <main className="flex flex-row justify-around">
-        <div className="">Main content</div>
-      </main>
-      <Navigation />
-    </div>
+    <Router>
+      <div className="App">
+        <main className="flex flex-row justify-around">
+          <AppRouter />
+        </main>
+        <Navigation />
+      </div>
+    </Router>
   );
 }
-
-export default App;

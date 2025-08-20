@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import { IconHome, IconList, IconCalendar, IconUser } from '@tabler/icons-react';
 
 const menuItems = [
-  { label: "Home", href: "#home", icon: <IconHome /> },
-  { label: "Transactions", href: "#transactions", icon: <IconList />},
-  { label: "Calendar", href: "#calendar", icon: <IconCalendar />},
-  { label: "Profile", href: "#profile", icon: <IconUser />},
+  { label: "Home", href: "/", icon: <IconHome /> },
+  { label: "Transactions", href: "/transactions", icon: <IconList />},
+  { label: "Calendar", href: "/calendar", icon: <IconCalendar />},
+  { label: "Profile", href: "/profile", icon: <IconUser />},
 ];
 
 export default function Navigation() {
@@ -15,16 +16,16 @@ export default function Navigation() {
       border-t border-gray-200 md:border-t-0 md:border-r shadow-sm"
     >
       {menuItems.map((item) => (
-        <a
+        <Link
           key={item.label}
-          href={item.href}
+          to={item.href}
           className="py-3 px-4 text-center md:text-left hover:bg-gray-100 transition-colors"
         >
           <div className="flex flex-row gap-2">
             {item.icon}
             <span className="hidden md:inline">{item.label}</span>
           </div>
-        </a>
+        </Link>
       ))}
     </nav>
   );
