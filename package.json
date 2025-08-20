@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@radix-ui/react-toggle-group": "^1.1.11",
     "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/postcss": "^4.1.11",
     "@testing-library/dom": "^10.4.1",

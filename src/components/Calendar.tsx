@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
 export function Calendar() {
-  const [selected, setSelected] = useState<Date>();
+  const navigate = useNavigate();
+  const handleSelect = (date: Date | undefined) => {
+    if (date) {
+      navigate("/add-transaction", { state: { date: date } })
+    }
+  };
 
   return (
     <DayPicker
       animate
       mode="single"
-      selected={selected}
-      onSelect={setSelected}
+      onSelect={handleSelect}
     />
   );
 }

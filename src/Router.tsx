@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Transactions from "./pages/Transactions";
 import CalendarPage from "./pages/CalendarPage";
 import Profile from "./pages/Profile";
+import AddTransaction from "./pages/AddTransaction";
 
 export default function AppRouter() {
   return (
@@ -11,6 +12,7 @@ export default function AppRouter() {
       <Route path="/transactions" element={<Transactions />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/add-transaction" element={<AddTransaction />} />
     </Routes>
   );
 }
