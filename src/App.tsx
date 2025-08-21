@@ -8,7 +8,7 @@ export default function App() {
     <Router>
       <div className="flex flex-col-reverse md:flex-row h-screen">
         <Navigation />
-        <main className="flex-1 flex justify-center p-4 md:ml-56">
+        <main className="flex-1 flex justify-center w-full p-4 md:ml-56">
           <AppRouter />
         </main>
       </div>

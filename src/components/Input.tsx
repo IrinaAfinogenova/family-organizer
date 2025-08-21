@@ -1,4 +1,5 @@
 interface InputProps {
+  className?: string;
   label?: string;
   placeholder?: string;
   value?: string;
@@ -6,9 +7,9 @@ interface InputProps {
   type?: string;
 }
 
-export default function Input({ label, placeholder, value, onChange, type = 'text' }: InputProps) {
+export default function Input({ className, label, placeholder, value, onChange, type = 'text' }: InputProps) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className={`${className} flex flex-col gap-1`}>
       {label && <label className="text-sm font-medium text-gray-700">{label}</label>}
       <input
         type={type}
