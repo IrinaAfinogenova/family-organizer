@@ -1,9 +1,10 @@
 import { Calendar } from "../components/Calendar";
+import BudgetSummary from "./BudgetSummary";
 
 export default function CalendarPage() {
   return (
-    <div>
-      <h1>Calendar Page</h1>
+    <div className="flex flex-col">
       <Calendar />
+      <BudgetSummary />
     </div>);
 }

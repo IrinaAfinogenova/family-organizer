@@ -15,7 +15,7 @@ export function Calendar() {
   };
 
   return (
-    <div>
+    <div className="mb-6">
       <DayPicker
         animate
         navLayout="around"
@@ -24,24 +24,10 @@ export function Calendar() {
           highlighted: highlightedDays,
         }}
         modifiersClassNames={{
-          highlighted: "bg-red-500 text-white rounded-full", // TODO make different colors for different types of transactions
+          highlighted: "bg-green-300 text-white rounded-full", // TODO make different colors for different types of transactions
         }}
         onSelect={handleSelect}
       />
-      <div className="flex flex-col gap-2">
-        {transactions.map((transaction) => (
-          <div
-            key={transaction.id}
-            className={`
-              p-2 w-full flex flex-row justify-between border rounded
-              ${transaction.type === "income" ? "bg-green-100" : "bg-red-100"}`
-            }
-          >
-            <p>{transaction.amount}</p>
-            <p>{new Date(transaction.date).toLocaleDateString()}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const TRANSACTION_TYPES = [
 export default function AddTransaction() {
   const { addTransaction } = useStore();
   const [type, setType] = useState<TransactionType>("income");
-  const [amount, setAmount] = useState<string>('');
+  const [amount, setAmount] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const location = useLocation();
   const navigate = useNavigate();
