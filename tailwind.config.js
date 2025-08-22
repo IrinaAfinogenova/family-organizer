@@ -5,6 +5,5 @@ module.exports = {
     theme: {
       extend: {},
     },
-    plugins: [],
-    safelist: ['group-data-[state=open]:rotate-180']
+    plugins: []
   }

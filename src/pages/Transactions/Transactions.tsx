@@ -5,7 +5,10 @@ import { countTotalAmount, filterExpenseTransactions, filterIncomeTransactions, 
 import { useStore } from '../../store';
 import TransactionsCollapsible from './TransactionsCollapsible';
 import { getDateRange } from '../../utils/date';
+import FloatingAddButton from '../../components/FloatingAddButton';
+import { useNavigate } from 'react-router-dom';
 
+// TODO support desktop view (button add)
 const TABS = [
   {id: 'month', title: 'Month'},
   {id: 'week', title: 'Week'},
@@ -23,6 +26,8 @@ export default function Transactions() {
   const expenseItems  = filterExpenseTransactions(filteredTransactions)
   const totalIncome = countTotalAmount(incomeItems);
   const totalExpense = countTotalAmount(expenseItems);
+
+  const navigate = useNavigate();
 
   return (
     <PageContainer linkTo="/calendar" title="Transactions">
@@ -46,6 +51,7 @@ export default function Transactions() {
           />
         }
       </div>
+      <FloatingAddButton onClick={() => { navigate(`/calendar`);}}/>
     </PageContainer>
   );
 }
