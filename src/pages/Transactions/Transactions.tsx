@@ -1,26 +1,28 @@
 import { useState } from 'react';
 import PageContainer from '../../components/PageContainer';
 import TabsGroup from '../../components/TabsGroup';
-import { countTotalAmount, filterExpenseTransactions, filterIncomeTransactions } from '../../utils/transactions';
+import { countTotalAmount, filterExpenseTransactions, filterIncomeTransactions, filterTransactionsByDateRange } from '../../utils/transactions';
 import { useStore } from '../../store';
 import TransactionsCollapsible from './TransactionsCollapsible';
+import { getDateRange } from '../../utils/date';
 
 const TABS = [
   {id: 'month', title: 'Month'},
   {id: 'week', title: 'Week'},
   {id: 'last-month', title: 'Last month'},
-  {id: 'custom', title: 'Custom'},
+  {id: 'custom', title: 'Custom'}, // TODO add custom date range functionality
 ];
 
 export default function Transactions() {
   const { transactions } = useStore();
   const [selectedTab, setSelectedTab] = useState<string>('month');
+  const { start, end } = getDateRange(selectedTab);
+  const filteredTransactions = filterTransactionsByDateRange(transactions, start, end);
 
-  const incomeItems  = filterIncomeTransactions(transactions)
-  const expenseItems  = filterExpenseTransactions(transactions)
+  const incomeItems  = filterIncomeTransactions(filteredTransactions)
+  const expenseItems  = filterExpenseTransactions(filteredTransactions)
   const totalIncome = countTotalAmount(incomeItems);
   const totalExpense = countTotalAmount(expenseItems);
-
 
   return (
     <PageContainer linkTo="/calendar" title="Transactions">
