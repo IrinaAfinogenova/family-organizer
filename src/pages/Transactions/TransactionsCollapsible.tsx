@@ -23,7 +23,7 @@ export default function TransactionsCollapsible({title, transactions, type}: ITr
 			<Accordion.Item value="item-1">
 				<Accordion.Header>
 					<Accordion.Trigger className="flex cursor-pointer items-center w-full justify-between gap-6 py-2">
-						<span>{title}</span>
+						<span >{title}</span>
 						<IconChevronDown
 							className={`block transform transition-transform duration-300 ease-[cubic-bezier(0.87,0,0.13,1)] ${
 								open ? "rotate-180" : ""

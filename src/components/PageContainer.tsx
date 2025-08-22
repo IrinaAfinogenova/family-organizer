@@ -5,7 +5,7 @@ interface IPageContainer {
 	linkTo?: string;	
 	title: string;
 	children?: React.ReactNode;
-  isShowBackButton?: boolean;
+  isShowBackButton?: boolean; // TODO switch to hideBackButton
 }
 
 export default function PageContainer({linkTo, title, isShowBackButton, children}: IPageContainer) {

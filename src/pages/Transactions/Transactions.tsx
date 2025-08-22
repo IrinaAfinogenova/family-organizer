@@ -7,6 +7,7 @@ import TransactionsCollapsible from './TransactionsCollapsible';
 import { getDateRange } from '../../utils/date';
 import FloatingAddButton from '../../components/FloatingAddButton';
 import { useNavigate } from 'react-router-dom';
+import CircleChart from '../../components/CircleChart';
 
 // TODO support desktop view (button add)
 const TABS = [
@@ -51,6 +52,7 @@ export default function Transactions() {
           />
         }
       </div>
+      {transactions.length !== 0 && <CircleChart totalIncome={totalIncome} totalExpense={totalExpense} />}
       <FloatingAddButton onClick={() => { navigate(`/calendar`);}}/>
     </PageContainer>
   );
