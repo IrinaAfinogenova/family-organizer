@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Transactions from "./pages/Transactions";
+import Transactions from "./pages/Transactions/Transactions";
 import CalendarPage from "./pages/CalendarPage";
 import Profile from "./pages/Profile";
 import AddTransaction from "./pages/AddTransaction";

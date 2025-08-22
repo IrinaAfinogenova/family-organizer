@@ -27,8 +27,8 @@ export default function AddTransaction() {
       type,
       amount: parseFloat(amount),
       notes,
-      date: date ? new Date(date) : new Date(),
-      createdAt: new Date(),
+      date: (date ? new Date(date) : new Date()).toISOString(),
+      createdAt: new Date().toISOString(),
     });
     navigate(`/calendar`);
   }

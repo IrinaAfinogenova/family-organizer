@@ -1,5 +1,5 @@
 import { Calendar } from "../components/Calendar";
-import BudgetSummary from "./BudgetSummary";
+import BudgetSummary from "./BudgetSummaryPage/BudgetSummary";
 
 export default function CalendarPage() {
   return (

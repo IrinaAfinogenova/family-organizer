@@ -5,7 +5,7 @@ export interface ITransaction {
   type: TransactionType;
   amount: number;
   notes?: string;
-  date: Date;
-  createdAt: Date;
-  updatedAt?: Date;
+  date: string; // ISO date string
+  createdAt: string; // ISO date string
+  updatedAt?: string; // ISO date string
 }

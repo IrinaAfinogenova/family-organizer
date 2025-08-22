@@ -3,7 +3,7 @@ interface ITotalLegend {
   totalExpense: number;
 }
 
-const TotalLegend = ({ totalIncome, totalExpense }: ITotalLegend) => {
+export default function TotalLegend ({ totalIncome, totalExpense }: ITotalLegend) {
   return (
     <div className="flex flex-col space-y-2 mb-8">
       <div className="flex justify-between items-center">
@@ -23,5 +23,3 @@ const TotalLegend = ({ totalIncome, totalExpense }: ITotalLegend) => {
     </div>
   );
 };
-
-export default TotalLegend;

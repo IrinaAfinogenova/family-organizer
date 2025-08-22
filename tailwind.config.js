@@ -6,4 +6,5 @@ module.exports = {
       extend: {},
     },
     plugins: [],
+    safelist: ['group-data-[state=open]:rotate-180']
   }
