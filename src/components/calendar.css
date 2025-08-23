@@ -1,5 +1,5 @@
 /* Need more work here */
-.dot-top-right::before { 
+.dot-green::before { 
   content: '';
   position: absolute;
   top: 10px;
@@ -20,10 +20,10 @@
   border-radius: 50%; 
 }
 
-.dot-top-right.has-before::after {
-  top: 20px;
+.dot-top-right, .dot-green {
+  position: relative;
 }
 
-.dot-top-right {
-    position: relative;
+.dot-top-right.dot-green::after {
+  top: 20px;
 }
