@@ -1,5 +1,5 @@
 import * as ToggleGroupRadix from "@radix-ui/react-toggle-group";
-import { TransactionType } from "../definitions";
+import type { TransactionType } from "../definitions";
 
 interface IToggleGroup {
   className: string;

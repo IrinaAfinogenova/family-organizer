@@ -1,6 +1,6 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { IconChevronDown } from "@tabler/icons-react";
-import { ITransaction, TransactionType } from "../../definitions";
+import type { ITransaction, TransactionType } from "../../definitions";
 import { formatDate } from "../../utils/date";
 import { useState } from "react";
 

@@ -5,7 +5,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import TogglerGroup from '../components/TogglerGroup';
 import { useStore } from "../store";
-import { TransactionType } from '../definitions';
+import type { TransactionType } from '../definitions';
 import Textarea from '../components/Textarea';
 
 const TRANSACTION_TYPES = [

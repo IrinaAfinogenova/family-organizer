@@ -1,6 +1,6 @@
 // store.ts
 import { create } from "zustand";
-import { ITransaction } from "./definitions";
+import type { ITransaction } from "./definitions";
 
 interface AppState {
   transactions: ITransaction[];
