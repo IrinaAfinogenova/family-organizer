@@ -5,6 +5,7 @@ import CalendarPage from "./pages/CalendarPage";
 import Profile from "./pages/Profile";
 import AddTransaction from "./pages/AddTransaction";
 import BudgetCalculation from "./pages/BudgetCalculation/BudgetCalculation";
+import DayExpense from "./pages/DayExpense/DayExpense";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/add-transaction" element={<AddTransaction />} />
+      <Route path="/day-expense" element={<DayExpense />} />
     </Routes>
   );
 }

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { filterExpenseTransactions, filterIncomeTransactions } from "../../utils/transactions";
 import { Calendar } from "../../components/Calendar";
 import type { ITransaction } from "../../definitions";
@@ -7,6 +8,8 @@ interface ICalendarView {
 }
 
 export function CalendarView({transactions}: ICalendarView) {
+	const navigate = useNavigate();
+
 	const highlightedDaysRed = filterExpenseTransactions(transactions).map((transaction) => new Date(transaction.date));
 	const highlightedDaysGreen = filterIncomeTransactions(transactions).map((transaction) => new Date(transaction.date));
     
@@ -23,7 +26,7 @@ export function CalendarView({transactions}: ICalendarView) {
 				highlightedRed: highlightedDaysRed,
 				highlightedGreen: highlightedDaysGreen
 			}}
-			onSelect={() => {  }} // TODO open day view 
+			onSelect={(date) => { navigate(`/day-expense`, { state: { date: date } }); }}
     />
   );
 }

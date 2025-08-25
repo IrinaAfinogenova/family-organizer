@@ -6,6 +6,9 @@ export const countTotalAmount = (transactions: ITransaction[]) =>
 export const filterTransactions = (transactions: ITransaction[], type: TransactionType) =>
    transactions.filter(transaction => transaction.type === type);
 
+export const transactionByDay = (transactions: ITransaction[], date: string) =>
+  transactions.filter(transaction => transaction.date === date);
+
 export const filterExpenseTransactions = (transactions: ITransaction[]) =>
   filterTransactions(transactions, "outcome");
 
