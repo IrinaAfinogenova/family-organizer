@@ -17,7 +17,6 @@ export default function ToggleGroup<T extends string>({className = "", items, se
 		>
       {items.map((toggler) => (
         <ToggleGroupRadix.Item
-          key={toggler.type}
           className={`flex-1 px-3 py-2 text-center rounded-md ${
             selectedItem === toggler.type
               ? (toggler.classNameSelected || "bg-green-300 text-white")
