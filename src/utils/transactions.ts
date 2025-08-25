@@ -26,4 +26,15 @@ export const filterTransactionsByDateRange  = (transactions: ITransaction[], sta
     const transactionDate = new Date(transaction.date);
     return transactionDate >= startDateObj && transactionDate <= endDateObj;
   });
+};
+
+export const getTotalByDateRange = (transactions: ITransaction[], startDate: Date | string, endDate: Date | string) => {
+  const filteredTransactions = filterTransactionsByDateRange(transactions, startDate, endDate);
+
+  const incomeItems  = filterIncomeTransactions(filteredTransactions);
+  const expenseItems  = filterExpenseTransactions(filteredTransactions);
+  const totalIncome = countTotalAmount(incomeItems);
+  const totalExpense = countTotalAmount(expenseItems);
+
+  return { totalIncome, totalExpense };
 }

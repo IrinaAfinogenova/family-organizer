@@ -1,17 +1,16 @@
 import * as ToggleGroupRadix from "@radix-ui/react-toggle-group";
-import type { TransactionType } from "../definitions";
 
-interface IToggleGroup {
-  className: string;
-  items: { type: TransactionType; label: string, classNameSelected: string }[]; //TODO switch to generic
-  selectedItem: string;
-  onChange: (value: TransactionType) => void;
+interface IToggleGroup<T> {
+  className?: string;
+  items: { type: T; label: string | React.ReactNode, classNameSelected?: string }[]; //TODO switch to generic
+  selectedItem?: string;
+  onChange?: (value: T) => void;
 }
 
-export default function ToggleGroup({className, items, selectedItem, onChange}: IToggleGroup) {
+export default function ToggleGroup<T extends string>({className = "", items, selectedItem, onChange}: IToggleGroup<T>) {
 	return (
 		<ToggleGroupRadix.Root
-      className={`${className} flex w-full gap-2`}
+      className={`${className} flex`}
 			type="single"
 			value={selectedItem}
 			onValueChange={onChange}

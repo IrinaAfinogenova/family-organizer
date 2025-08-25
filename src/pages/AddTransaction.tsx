@@ -33,6 +33,7 @@ export default function AddTransaction() {
     navigate(`/transactions`);
   }
 
+  // TODO use page container
   return (
     <div className="flex flex-col w-full gap-2">
       <div className="flex flex-row items-center gap-2 mb-6">
@@ -46,7 +47,7 @@ export default function AddTransaction() {
       <div className="flex flex-col h-full justify-between">
         <div>
           <TogglerGroup
-            className="mb-4"
+            className="mb-4 gap-2"
             items={TRANSACTION_TYPES}
             selectedItem={type}
             onChange={(value: TransactionType) => setType(value)}

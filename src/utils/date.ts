@@ -3,7 +3,7 @@ export const formatDate = (date: Date | string) => {
 	const formatter = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
 	
   return formatter.format(dateObj);
-}
+};
 
 export const getDateRange = (range: string) => {
   const today = new Date();
@@ -21,12 +21,12 @@ export const getDateRange = (range: string) => {
 	  const start = new Date(today.getFullYear(), today.getMonth() - 1, 1); // first day of last month
       const end = new Date(today.getFullYear(), today.getMonth(), 0); // last day of last month
       return { start, end };
-	}
-	case 'month':
-	default: {
-      const start = new Date(today.getFullYear(), today.getMonth(), 1); // month start
-      const end = new Date(today.getFullYear(), today.getMonth() + 1, 0); // month end
-      return { start, end };
+	  }
+    case 'month':
+    default: {
+        const start = new Date(today.getFullYear(), today.getMonth(), 1); // month start
+        const end = new Date(today.getFullYear(), today.getMonth() + 1, 0); // month end
+        return { start, end };
+      }
     }
-  }
-}
+};
