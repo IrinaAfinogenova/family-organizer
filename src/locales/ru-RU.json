@@ -1,0 +1,16 @@
+{
+  "language": "Язык",
+  "my-budget": "Мой бюджет",
+  "month": "Месяц",
+  "week": "Неделя",
+  "last-month": "Предыдущий месяц",
+  "no-records-added": "Вы ещё не добавили записи",
+  "calculate-budget": "Рассчитать бюджет",
+  "income": "Доход",
+  "expense": "Расход",
+  "new-entry": "Новая запись",
+  "add-entry": "Добавить запись",
+  "notes": "Заметки",
+  "type-amount": "Введите сумму",
+  "pick-date": "Выберите дату"
+}

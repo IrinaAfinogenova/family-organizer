@@ -3,10 +3,12 @@ import { Calendar } from "../components/Calendar";
 import PageContainer from "../components/PageContainer";
 import { useStore } from "../store";
 import { filterExpenseTransactions, filterIncomeTransactions } from "../utils/transactions";
+import { useTranslation } from "react-i18next";
 
 export default function CalendarPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
-  const { transactions } = useStore(); // TODO this should not be in this component
+  const { transactions } = useStore();
   const highlightedDaysRed = filterExpenseTransactions(transactions).map((transaction) => new Date(transaction.date));
   const highlightedDaysGreen = filterIncomeTransactions(transactions).map((transaction) => new Date(transaction.date));
 
@@ -17,7 +19,7 @@ export default function CalendarPage() {
   };
 
   return (
-    <PageContainer isShowBackButton linkTo="/transactions" title="Pick a transaction date">
+    <PageContainer isShowBackButton linkTo="/transactions" title={t("pick-date")}>
       <div className="flex flex-col items-center">
         <Calendar
           modifiersClassNames={{

@@ -9,3 +9,5 @@ export interface ITransaction {
   createdAt: string; // ISO date string
   updatedAt?: string; // ISO date string
 }
+
+export type languageType = "ru-RU" | "en-US";

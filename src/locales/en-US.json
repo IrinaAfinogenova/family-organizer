@@ -1,0 +1,16 @@
+{
+  "language": "Language",
+  "my-budget": "My Budget",
+  "month": "Month",
+  "week": "Week",
+  "last-month": "Last month",
+  "no-records-added": "No records added yet",
+  "calculate-budget": "Calculate budget",
+  "income": "Income",
+  "expense": "Expense",
+  "new-entry": "New entry",
+  "add-entry": "Add entry",
+  "notes": "Notes",
+  "type-amount": "Type amount",
+  "pick-date": "Pick a date"
+}

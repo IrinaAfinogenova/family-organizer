@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IconArrowLeft } from '@tabler/icons-react';
+import { useTranslation } from 'react-i18next';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import TogglerGroup from '../components/TogglerGroup';
 import { useStore } from "../store";
 import type { TransactionType } from '../definitions';
+
 import Textarea from '../components/Textarea';
 
-const TRANSACTION_TYPES = [
-  {type: "income", label: "Доход", classNameSelected: "bg-green-300 text-white"},
-  {type: "outcome", label: "Расход", classNameSelected: "bg-red-300 text-white"},
-] as {type: TransactionType; label: string, classNameSelected: string}[];
+type transactionType = {type: TransactionType; label: string, classNameSelected: string};
+
+const getTransactionType = (t: (a: string) => string): transactionType[] => ([
+  {type: "income", label: t("income"), classNameSelected: "bg-green-300 text-white"},
+  {type: "outcome", label: t("expense"), classNameSelected: "bg-red-300 text-white"},
+]);
 
 export default function AddTransaction() {
+  const { t, i18n } = useTranslation();
   const { addTransaction } = useStore();
   const [type, setType] = useState<TransactionType>("income");
   const [amount, setAmount] = useState<string>("");
@@ -41,21 +46,21 @@ export default function AddTransaction() {
           <IconArrowLeft />
         </Link>
         <span className="text-lg font-bold text-center w-full">
-          Add transaction {date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric'})}
+          {t("new-entry")} {date.toLocaleDateString(i18n.language, { day: 'numeric', month: 'long', year: 'numeric'})}
         </span>
       </div>
       <div className="flex flex-col h-full justify-between">
         <div>
           <TogglerGroup
             className="mb-4 gap-2"
-            items={TRANSACTION_TYPES}
+            items={getTransactionType(t)}
             selectedItem={type}
             onChange={(value: TransactionType) => setType(value)}
           />
-          <Input className="mb-4" placeholder="amount" type="number" onChange={(e) => setAmount(e.target.value)} />
-          <Textarea className="mb-4" placeholder="Notes" onChange={(e) => setNotes(e.target.value)}/>
+          <Input className="mb-4" placeholder={t("type-amount")} type="number" onChange={(e) => setAmount(e.target.value)} />
+          <Textarea className="mb-4" placeholder={t("notes")} onChange={(e) => setNotes(e.target.value)}/>
         </div>
-        <Button variant="primary" onClick={handleAddTransaction}>Add transaction</Button>
+        <Button variant="primary" onClick={handleAddTransaction}>{t("add-entry")}</Button>
       </div>
     </div>
   );

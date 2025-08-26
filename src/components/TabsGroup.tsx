@@ -15,7 +15,7 @@ export default function TabsGroup({tabs, selectedTabId, onTabChange}: ITabsGroup
   }
 
   return (
-    <div className="flex flex-row flex-wrap justify-evenly w-full gap-2 mb-6">
+    <div className="flex flex-row flex-wrap justify-between w-full gap-2 mb-6">
 			{tabs.map(tab => (
 				<div
 					key={tab.id}

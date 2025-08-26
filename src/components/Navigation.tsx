@@ -5,7 +5,7 @@ const menuItems = [
   { label: "Home", href: "/", icon: <IconHome /> },
   { label: "Transactions", href: "/transactions", icon: <IconList />},
   { label: "Calendar", href: "/calendar", icon: <IconCalendar />},
-  { label: "Profile", href: "/profile", icon: <IconUser />},
+  { label: "Settings", href: "/settings", icon: <IconUser />},
 ];
 
 export default function Navigation() {
