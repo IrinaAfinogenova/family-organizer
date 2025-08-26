@@ -1,6 +1,16 @@
-export const formatDate = (date: Date | string) => {
+import type { languageType } from '../definitions';
+
+// format date to (August, 26 2025)
+export const formatDateFullView = (date: Date | string, locale: languageType = "en-US") => {
+  const dateObj = typeof date === "string" ? new Date(date) : date; 
+
+  return dateObj.toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric"});
+}
+
+// format date to (Aug, 26 2025)
+export const formatDateShortView = (date: Date | string, locale: languageType = "en-US") => {
 	const dateObj = typeof date === "string" ? new Date(date) : date; 
-	const formatter = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+	const formatter = new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" });
 	
   return formatter.format(dateObj);
 };

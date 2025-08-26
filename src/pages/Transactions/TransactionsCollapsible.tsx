@@ -1,7 +1,7 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { IconChevronDown } from "@tabler/icons-react";
 import type { ITransaction, TransactionType } from "../../definitions";
-import { formatDate } from "../../utils/date";
+import { formatDateShortView } from "../../utils/date";
 import { useState } from "react";
 
 interface ITransactionsCollapsible {
@@ -35,7 +35,7 @@ export default function TransactionsCollapsible({title, transactions, type}: ITr
 					<div>
 						{transactions.length !== 0 && transactions.map((transaction) => (
 							<div key={transaction.id} className="flex items-center justify-between py-2">
-								<span>{formatDate(transaction.date)}</span>
+								<span>{formatDateShortView(transaction.date)}</span>
 								<span className={`ml-auto ${type === 'income' ? "text-green-600" : "text-red-800"}`}>
 									{type === 'income' ? '+' : '-'}${transaction.amount.toFixed(2)}
 								</span>
