@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Calendar } from "../components/Calendar";
-import PageContainer from "../components/PageContainer";
-import { useStore } from "../store";
-import { filterExpenseTransactions, filterIncomeTransactions } from "../utils/transactions";
 import { useTranslation } from "react-i18next";
+import { Calendar } from "@/components/Calendar";
+import PageContainer from "@/components/PageContainer";
+import { useStore } from "@/store";
+import { filterExpenseTransactions, filterIncomeTransactions } from "@/utils/transactions";
 
 export default function CalendarPage() {
   const { t } = useTranslation();
@@ -19,7 +19,7 @@ export default function CalendarPage() {
   };
 
   return (
-    <PageContainer isShowBackButton linkTo="/transactions" title={t("pick-date")}>
+    <PageContainer linkTo="/transactions" title={t("pick-date")}>
       <div className="flex flex-col items-center">
         <Calendar
           modifiersClassNames={{

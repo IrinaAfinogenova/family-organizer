@@ -1,6 +1,6 @@
 import TransactionsCollapsible from './TransactionsCollapsible';
-import type { ITransaction } from '../../definitions';
-import { countTotalAmount } from '../../utils/transactions';
+import type { ITransaction } from '@/definitions';
+import { countTotalAmount } from '@/utils/transactions';
 
 interface ITransactionsList {
 	incomeItems: ITransaction[];

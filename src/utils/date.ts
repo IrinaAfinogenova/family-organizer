@@ -1,4 +1,4 @@
-import type { languageType } from '../definitions';
+import type { languageType } from '@/definitions';
 
 // format date to (August, 26 2025)
 export const formatDateFullView = (date: Date | string, locale: languageType = "en-US") => {

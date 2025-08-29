@@ -4,6 +4,7 @@
   "month": "Month",
   "week": "Week",
   "last-month": "Last month",
+  "custom": "Custom",
   "no-records-added": "No records added yet",
   "calculate-budget": "Calculate budget",
   "income": "Income",
@@ -12,5 +13,7 @@
   "add-entry": "Add entry",
   "notes": "Notes",
   "type-amount": "Type amount",
-  "pick-date": "Pick a date"
+  "pick-date": "Pick a date",
+  "add-current-amount-money": "Add your current amount of money",
+  "day-expense": "Day Expense"
 }

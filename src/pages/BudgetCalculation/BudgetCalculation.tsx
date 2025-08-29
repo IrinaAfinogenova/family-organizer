@@ -1,36 +1,39 @@
 import { useState } from "react";
-import Input from "../../components/Input";
-import PageContainer from "../../components/PageContainer";
-import CircleChart from "../../components/CircleChart";
-import ToggleGroup from "../../components/TogglerGroup";
-import { getTotalByDateRange } from "../../utils/transactions";
-import { useStore } from "../../store";
-import { getDateRange } from "../../utils/date";
+import { useTranslation } from "react-i18next";
+import Input from "@/components/Input";
+import PageContainer from "@/components/PageContainer";
+import CircleChart from "@/components/CircleChart";
+import ToggleGroup from "@/components/TogglerGroup";
+import { getTotalByDateRange } from "@/utils/transactions";
+import { useStore } from "@/store";
+import { getDateRange } from "@/utils/date";
 
-type PeriodTypes = "week" | "month" | "custom";
+type PeriodTypesLabels = "week" | "month" | "custom";
+type PeriodTypesType = {type: PeriodTypesLabels; label: string}[]
 
-const PERIOD_TYPES = [
-  {type: "week", label: "Week"},
-  {type: "month", label: "Month"},
-  {type: "custom", label: "Custom"},
-] as {type: PeriodTypes; label: string}[];
+const getPeriodTypes = (t: (a: string) => string): PeriodTypesType => ([
+  {type: "week", label: t("week")},
+  {type: "month", label: t("month")},
+  {type: "custom", label: t("custom")},
+]);
 
 export default function BudgetCalculationPage() {
+  const {t} = useTranslation();
   const {transactions} = useStore();
   const [amount, setAmount] = useState<string>("");
-  const [period, setPeriod] = useState<PeriodTypes>("month");
+  const [period, setPeriod] = useState<PeriodTypesLabels>("month");
 
   const {start, end} = getDateRange(period);
   const {totalIncome, totalExpense} = getTotalByDateRange(transactions, start, end)
- 
+
   return (
-    <PageContainer isShowBackButton linkTo="/transactions" title="Calculate your budget">
+    <PageContainer linkTo="/transactions" title={t("calculate-budget")}>
       <div className="flex flex-col items-center">
         <div className="flex flex-col w-full gap-2">
-          <ToggleGroup items={PERIOD_TYPES} selectedItem={period} onChange={(value) => setPeriod(value)}/>
+          <ToggleGroup items={getPeriodTypes(t)} selectedItem={period} onChange={(value) => setPeriod(value)}/>
           <Input 
             className="mb-4"
-            placeholder="Add your current amount of money"
+            placeholder={t("add-current-amount-money")}
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}

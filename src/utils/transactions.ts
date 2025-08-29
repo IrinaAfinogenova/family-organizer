@@ -1,4 +1,4 @@
-import type { ITransaction, TransactionType } from "../definitions";
+import type { ITransaction, TransactionType } from "@/definitions";
 
 export const countTotalAmount = (transactions: ITransaction[]) => 
   transactions.reduce((total, transaction) => total + transaction.amount, 0);

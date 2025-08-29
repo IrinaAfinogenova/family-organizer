@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import PageContainer from '../../components/PageContainer';
-import TabsGroup from '../../components/TabsGroup';
-import { filterExpenseTransactions, filterIncomeTransactions, filterTransactionsByDateRange } from '../../utils/transactions';
-import { useStore } from '../../store';
-import { getDateRange } from '../../utils/date';
-import FloatingAddButton from '../../components/FloatingAddButton';
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
-import TogglerGroup from '../../components/TogglerGroup';
+import { useTranslation } from 'react-i18next';
+import PageContainer from '@/components/PageContainer';
+import TabsGroup from '@/components/TabsGroup';
+import { filterExpenseTransactions, filterIncomeTransactions, filterTransactionsByDateRange } from '@/utils/transactions';
+import { useStore } from '@/store';
+import { getDateRange } from '@/utils/date';
+import FloatingAddButton from '@/components/FloatingAddButton';
+import Button from '@/components/Button';
+import TogglerGroup from '@/components/TogglerGroup';
 import TransactionsList from './TransactionsList';
 import { CalendarView } from './CalendarView';
-import { useTranslation } from 'react-i18next';
 import { periodTabs, MODES } from './tabs';
 
 // TODO support desktop view (button add)
@@ -31,7 +31,7 @@ export default function Transactions() {
   };
 
   return (
-    <PageContainer linkTo="/calendar" title={t("my-budget")}>
+    <PageContainer hideBackButton linkTo="/calendar" title={t("my-budget")}>
       <div className="flex flex-row gap-4 justify-end">
         {mode === 'list' && 
           <TabsGroup tabs={periodTabs(t)} selectedTabId={selectedTab} onTabChange={setSelectedTab}/>
@@ -55,9 +55,7 @@ export default function Transactions() {
           }
         </>
       }
-      {mode === 'calendar' && 
-        <CalendarView transactions={transactions} />
-      }
+      {mode === 'calendar' && <CalendarView transactions={transactions} />}
     </PageContainer>
   );
 }

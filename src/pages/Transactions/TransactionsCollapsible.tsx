@@ -1,7 +1,7 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { IconChevronDown } from "@tabler/icons-react";
-import type { ITransaction, TransactionType } from "../../definitions";
-import { formatDateShortView } from "../../utils/date";
+import type { ITransaction, TransactionType } from "@/definitions";
+import { formatDateShortView } from "@/utils/date";
 import { useState } from "react";
 
 interface ITransactionsCollapsible {

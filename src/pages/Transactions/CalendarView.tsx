@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { filterExpenseTransactions, filterIncomeTransactions } from "../../utils/transactions";
-import { Calendar } from "../../components/Calendar";
-import type { ITransaction } from "../../definitions";
+import { filterExpenseTransactions, filterIncomeTransactions } from "@/utils/transactions";
+import { Calendar } from "@/components/Calendar";
+import type { ITransaction } from "@/definitions";
 
 interface ICalendarView {
 	transactions: ITransaction[]

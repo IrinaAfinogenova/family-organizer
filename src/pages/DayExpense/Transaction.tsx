@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { IconChevronDown } from "@tabler/icons-react";
-import type { ITransaction } from '../../definitions';
+import type { ITransaction } from '@/definitions';
 
 // TODO make a Accordion as universal component
 

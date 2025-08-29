@@ -1,19 +1,21 @@
 import { useLocation } from "react-router-dom";
-import { useStore } from "../../store";
-import { transactionByDay } from "../../utils/transactions";
-import PageContainer from "../../components/PageContainer";
+import { useTranslation } from "react-i18next";
+import PageContainer from "@/components/PageContainer";
+import { transactionByDay } from "@/utils/transactions";
+import { formatDateShortView } from "@/utils/date";
+import { useStore } from "@/store";
 import Transaction from "./Transaction";
-import { formatDateShortView } from "../../utils/date";
 
 export default function DayExpense() {
 	const { transactions, locale } = useStore();
+	const { t } = useTranslation();
 	const location = useLocation();
 	
   const date = location.state?.date;
   const dayTransactions = transactionByDay(transactions, new Date(date).toISOString());
 
   return (
-		<PageContainer linkTo="/calendar" title={`Day Expense ${formatDateShortView(date, locale)}`}>
+		<PageContainer linkTo="/calendar" title={`${t("day-expense")} ${formatDateShortView(date, locale)}`}>
 			<div className="flex flex-col">
 				{dayTransactions.map((transaction) => (
 					<Transaction key={transaction.id} transaction={transaction}/>

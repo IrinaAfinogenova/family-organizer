@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import { useStore } from "../../store";
-import type { languageType } from "../../definitions";
+import { useStore } from "@/store";
+import type { languageType } from "@/definitions";
 
 export function LanguageToggle() {
   const { locale, changeLocale } = useStore();

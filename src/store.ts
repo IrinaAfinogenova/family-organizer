@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { ITransaction, languageType } from "./definitions";
+import type { ITransaction, languageType } from "@/definitions";
 
 interface AppState {
   transactions: ITransaction[];

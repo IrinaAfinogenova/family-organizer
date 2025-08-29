@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import AppRouter from './Router';
-import './App.css';
+import Navigation from '@/components/Navigation';
+import AppRouter from '@/Router';
+import '@/App.css';
 
 export default function App() {
   return (
