@@ -15,5 +15,10 @@
   "type-amount": "Type amount",
   "pick-date": "Pick a date",
   "add-current-amount-money": "Add your current amount of money",
-  "day-expense": "Day Expense"
+  "day-expense": "Day Expense",
+  "sign-in-system": "Sign In",
+  "sign-in": "Sign In",
+  "email": "Email",
+  "password": "Password",
+  "forgot-password": "Forgot password?"
 }

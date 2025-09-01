@@ -15,5 +15,10 @@
   "type-amount": "Введите сумму",
   "pick-date": "Выберите дату",
   "add-current-amount-money": "Укажите вашу текущую сумму денег",
-  "day-expense": "Дневные расходы"
+  "day-expense": "Дневные расходы",
+  "sign-in-system": "Вход в систему",
+  "sign-in": "Войти",
+  "email": "Email",
+  "password": "Пароль",
+  "forgot-password": "Забыли пароль?"
 }

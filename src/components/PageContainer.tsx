@@ -17,7 +17,7 @@ export default function PageContainer({linkTo, title, hideBackButton, children}:
             {title}
         </span>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col h-full">
         {children}
       </div>
     </div>

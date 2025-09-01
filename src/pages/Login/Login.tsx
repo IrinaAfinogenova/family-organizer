@@ -2,10 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import PageContainer from "@/components/PageContainer";
+import { useTranslation } from "react-i18next";
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || "";
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -33,12 +36,19 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col">
-      <h2>Login</h2>
-      <Input placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
-      <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-      <Button type="submit">Login</Button>
-    </form>
+    <PageContainer
+      hideBackButton
+      title={t("sign-in-system")}
+    >
+      <form onSubmit={handleLogin} className="flex flex-col h-full justify-between">
+        <div className="flex flex-col w-full gap-4">
+          <Input className="bg-green-50" placeholder={t("Email")} value={email} onChange={e => setEmail(e.target.value)} />
+          <Input className="bg-green-50" type="Password" placeholder={t("Password")} value={password} onChange={e => setPassword(e.target.value)} />
+          <a className="text-green-500 text-sm underline">{t("forgot-password")}</a>
+        </div>
+        <Button type="submit">{t("sign-in")}</Button>
+      </form>
+    </PageContainer>
   );
 };
 
