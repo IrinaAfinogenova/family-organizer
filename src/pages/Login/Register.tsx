@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import TextLink from "@/components/TextLink";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterSchema, type IRegisterForm } from "@/schemas/Register.schema";
+import { RegisterSchema, type IRegisterForm } from "@/schemas/register.schema";
 import PageContainer from "@/components/PageContainer";
 import { registerUser } from "@/api/actions/auth";
 import type { ErrorApiType } from "@/definitions";
