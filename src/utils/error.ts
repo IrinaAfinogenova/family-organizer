@@ -1,4 +1,4 @@
-export class ErrorApi extends Error { // TODO move to utils
+export class ErrorApi extends Error {
   status: number;
   constructor(status: number, message: string) {
     super(message);

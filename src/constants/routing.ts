@@ -1,0 +1,1 @@
+export const hiddenNavRoutes = ["/login", "/register", "/restore-password"];

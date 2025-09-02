@@ -8,6 +8,7 @@ import DayExpense from "@/pages/DayExpense/DayExpense";
 import Settings from "@/pages/Settings/Settings";
 import Register from "@/pages/Login/Register";
 import Login from "@/pages/Login/Login";
+import RestorePassword from "@/pages/Login/RestorePassword";
 import PrivateRoute from "./PrivateRoute";
 
 export default function AppRouter() {
@@ -16,6 +17,7 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/restore-password" element={<RestorePassword />} />
       <Route path="/transactions" element={<PrivateRoute><Transactions /></PrivateRoute>} />
       <Route path="/budget-calculate" element={<PrivateRoute><BudgetCalculation /></PrivateRoute>} />
       <Route path="/calendar" element={<PrivateRoute><CalendarPage /></PrivateRoute>} />

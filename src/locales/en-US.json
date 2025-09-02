@@ -20,5 +20,13 @@
   "sign-in": "Sign In",
   "email": "Email",
   "password": "Password",
-  "forgot-password": "Forgot password?"
+  "forgot-password": "Forgot password?",
+  "email-required-message": "Please enter a email",
+  "invalid-email-message": "Please enter a valid email",
+  "password-required-message": "Please enter a password",
+  "invalid-password-message": "Please enter a valid password",
+  "unknown-error-message": "Something went wrong. Please try again later.",
+  "invalid-email-password": "Invalid email or password",
+  "email-password-required": "Email and password are required",
+  "do-not-have-account": "Don't have an account? Sign up"
 }

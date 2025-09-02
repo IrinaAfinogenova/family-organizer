@@ -20,5 +20,13 @@
   "sign-in": "Войти",
   "email": "Email",
   "password": "Пароль",
-  "forgot-password": "Забыли пароль?"
+  "forgot-password": "Забыли пароль?",
+  "email-required-message": "Введите email",
+  "invalid-email-message": "Введите корректный email",
+  "password-required-message": "Введите пароль",
+  "invalid-password-message": "Введите корректный пароль",
+  "unknown-error-message": "Что-то пошло не так. Попробуйте позже.",
+  "invalid-email-password": "Неверный email или пароль",
+  "email-password-required": "Пожалуйста, введите email и пароль",
+  "do-not-have-account": "У вас нет аккаунта? Создайте его"
 }
