@@ -28,5 +28,10 @@
   "unknown-error-message": "Something went wrong. Please try again later.",
   "invalid-email-password": "Invalid email or password",
   "email-password-required": "Email and password are required",
-  "do-not-have-account": "Don't have an account? Sign up"
+  "do-not-have-account": "Don't have an account? Sign up",
+  "name-required-message": "Name must be longer than 3 characters",
+  "name": "Name",
+  "create-account": "Create your account",
+  "already-have-account": "Already have an account? Sign In",
+  "create-account-btn": "Create account"
 }

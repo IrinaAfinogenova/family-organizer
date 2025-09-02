@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
@@ -5,19 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import PageContainer from "@/components/PageContainer";
-import { login } from "@/api/actions/auth";
+import { loginUser } from "@/api/actions/auth";
 import { LoginSchema, type ILoginForm } from "@/schemas/login.schema";
-import { useState } from "react";
 import TextLink from "@/components/TextLink";
-
-type ErrorApiType = { message: string } | null;
+import type { ErrorApiType } from "@/definitions";
 
 const initialFormState = {
   email: "",
   password: ""
 };
 
-const Login = () => {
+export default function Login() {
   const {register, handleSubmit, formState: { errors }} = useForm<ILoginForm>({
     resolver: zodResolver(LoginSchema),
     defaultValues: initialFormState
@@ -28,7 +27,7 @@ const Login = () => {
 
   const handleLogin = async ({email, password}: ILoginForm) => {
     try {
-      await login({email, password});
+      await loginUser({email, password});
       navigate(`/transactions`);
     } catch(err) {
       const error = err as ErrorApiType;
@@ -45,7 +44,7 @@ const Login = () => {
           <Input
             {...register("email")}
             className="text-green-500"
-            placeholder={t("Email")}
+            placeholder={t("email")}
             hasError={!!errors.email || !!apiError}
             errorMessage={errors.email?.message ? t(errors.email.message) : ""}
           />
@@ -53,7 +52,7 @@ const Login = () => {
             {...register("password")}
             className="text-green-500"
             type="Password"
-            placeholder={t("Password")}
+            placeholder={t("password")}
             hasError={!!errors.password || !!apiError}
             errorMessage={errors.password?.message ? t(errors.password.message) : ""}
           />
@@ -72,5 +71,3 @@ const Login = () => {
     </PageContainer>
   );
 };
-
-export default Login;

@@ -28,5 +28,11 @@
   "unknown-error-message": "Что-то пошло не так. Попробуйте позже.",
   "invalid-email-password": "Неверный email или пароль",
   "email-password-required": "Пожалуйста, введите email и пароль",
-  "do-not-have-account": "У вас нет аккаунта? Создайте его"
+  "do-not-have-account": "У вас нет аккаунта? Создайте его",
+  "name-required-message": "Введите имя",
+  "invalid-name-message": "Имя должно содержать больше 3 символов",
+  "name": "Имя",
+  "create-account": "Создайте аккаунт",
+  "already-have-account": "Уже зарегистрированы? Войдите",
+  "create-account-btn": "Создать аккаунт"
 }
