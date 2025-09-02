@@ -13,3 +13,5 @@ export interface ITransaction {
 export type languageType = "ru-RU" | "en-US";
 
 export type TranslationType = (key: string) => string;
+
+export type HttpMethodType = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
