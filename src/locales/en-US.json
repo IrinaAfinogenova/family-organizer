@@ -33,5 +33,7 @@
   "name": "Name",
   "create-account": "Create your account",
   "already-have-account": "Already have an account? Sign In",
-  "create-account-btn": "Create account"
+  "create-account-btn": "Create account",
+  "profile": "Profile",
+  "settings": "Settings"
 }

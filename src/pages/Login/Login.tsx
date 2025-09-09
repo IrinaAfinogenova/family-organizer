@@ -10,6 +10,7 @@ import { loginUser } from "@/api/actions/auth";
 import { LoginSchema, type ILoginForm } from "@/schemas/login.schema";
 import TextLink from "@/components/TextLink";
 import type { ErrorApiType } from "@/definitions";
+import { useStore } from "@/store";
 
 const initialFormState = {
   email: "",
@@ -22,12 +23,14 @@ export default function Login() {
     defaultValues: initialFormState
   });
   const [apiError, setApiError] = useState<ErrorApiType>(null);
+  const {addUser} = useStore();
   const navigate = useNavigate();
   const {t} = useTranslation();
 
   const handleLogin = async ({email, password}: ILoginForm) => {
     try {
-      await loginUser({email, password});
+      const user = await loginUser({email, password});
+      addUser(user);
       navigate(`/transactions`);
     } catch(err) {
       const error = err as ErrorApiType;

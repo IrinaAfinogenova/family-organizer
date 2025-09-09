@@ -34,5 +34,7 @@
   "name": "Имя",
   "create-account": "Создайте аккаунт",
   "already-have-account": "Уже зарегистрированы? Войдите",
-  "create-account-btn": "Создать аккаунт"
+  "create-account-btn": "Создать аккаунт",
+  "profile": "Профиль",
+  "settings": "Настройки"
 }

@@ -1,18 +1,22 @@
 import { create } from "zustand";
-import type { ITransaction, languageType } from "@/definitions";
+import type { ITransaction, IUser, languageType } from "@/definitions";
 
 interface AppState {
   transactions: ITransaction[];
   locale: languageType;
+  user: IUser | null;
   addTransaction: (item: ITransaction) => void;
   removeTransaction: (item: ITransaction) => void;
-  changeLocale: (lang: languageType) => void
+  changeLocale: (lang: languageType) => void;
+  addUser: (user: IUser) => void
 }
 
 export const useStore = create<AppState>((set) => ({
   transactions: [],
   locale: "ru-RU",
-  addTransaction: (item: ITransaction) => set((state) => ({ transactions: state.transactions.concat([item]) })),
-  removeTransaction: (item: ITransaction) => set((state) => ({ transactions: state.transactions.filter((transaction) => transaction.id !== item.id) })),
-  changeLocale: (newLocale: languageType) => set(() => ({ locale: newLocale }))
+  user: null,
+  addTransaction: (item) => set((state) => ({ transactions: state.transactions.concat([item]) })),
+  removeTransaction: (item) => set((state) => ({ transactions: state.transactions.filter((transaction) => transaction.id !== item.id) })),
+  changeLocale: (newLocale) => set(() => ({ locale: newLocale })),
+  addUser: (user) => set(() => ({ user })),
 }));

@@ -1,14 +1,17 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { useFetchUser } from "./hooks/useFetchUser";
 
 interface IRoute {
   children: React.ReactNode;
 }
 
 export default function PrivateRoute({ children }: IRoute) {
-  const token = localStorage.getItem("token"); // TODO keep it in Cookie
+  const { user, loading } = useFetchUser();
 
-  if (!token) return <Navigate to="/login" replace />;
+  if (loading) return <p>Checking auth...</p>;
+
+  if (!user && !loading) return <Navigate to="/login" replace />;
 
   return children;
 }

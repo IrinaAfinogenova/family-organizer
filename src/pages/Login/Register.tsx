@@ -37,7 +37,6 @@ export default function Register() {
     }
   };
 
-  // TODO make universal container for Login, Register and RestorePassword
   return (
     <PageContainer hideBackButton title={t("create-account")}>
       <form onSubmit={handleSubmit(handleRegister)} className="flex flex-col h-full justify-between">

@@ -10,6 +10,13 @@ export interface ITransaction {
   updatedAt?: string; // ISO date string
 }
 
+export interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+}
+
 export type languageType = "ru-RU" | "en-US";
 
 export type TranslationType = (key: string) => string;

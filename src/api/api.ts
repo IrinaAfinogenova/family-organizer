@@ -18,8 +18,11 @@ export const request: requestType = async (url, params = {}) => {
   try {
     result = await fetch(url, {
       method,
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(body),
+      credentials: "include",
     });
   } catch {
      throw new ErrorApi(500, UNKNOWN_ERROR);
