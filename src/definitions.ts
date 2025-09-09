@@ -4,6 +4,7 @@ export interface ITransaction {
   id: string;
   type: TransactionType;
   amount: number;
+  repeat: string; // TODO update types
   notes?: string;
   date: string; // ISO date string
   createdAt: string; // ISO date string

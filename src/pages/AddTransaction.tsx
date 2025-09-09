@@ -9,6 +9,7 @@ import type { TransactionType, TranslationType } from '@/definitions';
 import Textarea from '@/components/Textarea';
 import PageContainer from '@/components/PageContainer';
 import { formatDateFullView } from '@/utils/date';
+import { createTransaction } from '@/api/actions/transactions';
 
 type transactionType = {type: TransactionType; label: string, classNameSelected: string};
 
@@ -26,15 +27,14 @@ export default function AddTransaction() {
   const location = useLocation();
   const navigate = useNavigate();
   const date = location.state?.date;
-  const handleAddTransaction = () => {
-    addTransaction({
-      id: crypto.randomUUID(),
+  const handleAddTransaction = async () => {
+    const transaction = await createTransaction({
       type,
-      amount: parseFloat(amount),
+      amount: Number(amount),
       notes,
-      date: (date ? new Date(date) : new Date()).toISOString(),
-      createdAt: new Date().toISOString(),
+      date: location.state?.date
     });
+    addTransaction(transaction);
     navigate(`/transactions`);
   };
   const formattedDate = formatDateFullView(date, locale);
