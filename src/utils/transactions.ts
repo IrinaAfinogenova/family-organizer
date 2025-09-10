@@ -10,7 +10,7 @@ export const transactionByDay = (transactions: ITransaction[], date: string) =>
   transactions.filter(transaction => transaction.date === date);
 
 export const filterExpenseTransactions = (transactions: ITransaction[]) =>
-  filterTransactions(transactions, "outcome");
+  filterTransactions(transactions, "expense");
 
 export const filterIncomeTransactions = (transactions: ITransaction[]) =>
   filterTransactions(transactions, "income");

@@ -20,6 +20,8 @@ export const useFetchUser = () => {
   useEffect(() => {
     if (!user) {
       fetchUser();
+    } else {
+      setLoading(false);
     }
   }, [user, fetchUser]);
 

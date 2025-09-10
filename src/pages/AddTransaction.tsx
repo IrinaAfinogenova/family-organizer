@@ -15,7 +15,7 @@ type transactionType = {type: TransactionType; label: string, classNameSelected:
 
 const getTransactionType = (t: TranslationType): transactionType[] => ([
   {type: "income", label: t("income"), classNameSelected: "bg-green-300 text-white"},
-  {type: "outcome", label: t("expense"), classNameSelected: "bg-red-300 text-white"},
+  {type: "expense", label: t("expense"), classNameSelected: "bg-red-300 text-white"},
 ]);
 
 export default function AddTransaction() {

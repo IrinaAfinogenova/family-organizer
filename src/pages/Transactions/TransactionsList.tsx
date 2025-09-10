@@ -24,7 +24,7 @@ export default function TransactionsList({ incomeItems, expenseItems }: ITransac
         <TransactionsCollapsible
           title={`Expense ($${totalExpense})`}
           transactions={expenseItems}
-          type="outcome"
+          type="expense"
         />
       }
     </>
