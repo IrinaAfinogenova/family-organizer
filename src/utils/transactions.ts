@@ -6,8 +6,15 @@ export const countTotalAmount = (transactions: ITransaction[]) =>
 export const filterTransactions = (transactions: ITransaction[], type: TransactionType) =>
    transactions.filter(transaction => transaction.type === type);
 
-export const transactionByDay = (transactions: ITransaction[], date: string) =>
-  transactions.filter(transaction => transaction.date === date);
+export const transactionByDay = (transactions: ITransaction[], date: string) => {
+  const target = new Date(date);
+
+  return transactions.filter(transaction => {
+    const tx = new Date(transaction.date);
+
+    return tx.getFullYear() === target.getFullYear() && tx.getMonth() === target.getMonth() && tx.getDate() === target.getDate();
+  });
+};
 
 export const filterExpenseTransactions = (transactions: ITransaction[]) =>
   filterTransactions(transactions, "expense");

@@ -35,5 +35,12 @@
   "already-have-account": "Already have an account? Sign In",
   "create-account-btn": "Create account",
   "profile": "Profile",
-  "settings": "Settings"
+  "settings": "Settings",
+  "task-list": "Task list",
+  "new-task": "New Task",
+  "title": "Title",
+  "description": "Description",
+  "once": "Once",
+  "daily": "Daily",
+  "monthly": "Monthly"
 }

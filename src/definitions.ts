@@ -18,6 +18,8 @@ export interface IUser {
   createdAt: string;
 }
 
+export type TaskType = "once" | "daily" | "monthly";
+
 export type languageType = "ru-RU" | "en-US";
 
 export type TranslationType = (key: string) => string;

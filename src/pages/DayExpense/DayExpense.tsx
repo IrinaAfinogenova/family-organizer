@@ -15,7 +15,7 @@ export default function DayExpense() {
   const dayTransactions = transactionByDay(transactions, new Date(date).toISOString());
 
   return (
-		<PageContainer linkTo="/calendar" title={`${t("day-expense")} ${formatDateShortView(date, locale)}`}>
+		<PageContainer linkTo="/transactions" title={`${t("day-expense")} ${formatDateShortView(date, locale)}`}>
 			<div className="flex flex-col">
 				{dayTransactions.map((transaction) => (
 					<Transaction key={transaction.id} transaction={transaction}/>

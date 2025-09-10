@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { IconHome, IconList, IconCalendar, IconUser } from '@tabler/icons-react';
+import { IconList, IconCalendar, IconUser } from '@tabler/icons-react';
 
 const menuItems = [
-  { label: "Home", href: "/", icon: <IconHome /> },
+  { label: "Tasks", href: "/tasks", icon: <IconList /> },
   { label: "Transactions", href: "/transactions", icon: <IconList />},
   { label: "Calendar", href: "/calendar", icon: <IconCalendar />},
   { label: "Settings", href: "/settings", icon: <IconUser />},

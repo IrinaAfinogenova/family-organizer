@@ -36,5 +36,12 @@
   "already-have-account": "Уже зарегистрированы? Войдите",
   "create-account-btn": "Создать аккаунт",
   "profile": "Профиль",
-  "settings": "Настройки"
+  "settings": "Настройки",
+  "task-list": "Задачи",
+  "new-task": "Новая задача",
+  "title": "Название",
+  "description": "Описание",
+  "once": "Разово",
+  "daily": "Ежедневно",
+  "monthly": "Ежемесячно"
 }

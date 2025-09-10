@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Tasks from "@/pages/Tasks/Tasks";
 import Home from "@/pages/Home";
 import Transactions from "@/pages/Transactions/Transactions";
 import CalendarPage from "@/pages/CalendarPage";
@@ -10,6 +11,7 @@ import Register from "@/pages/Login/Register";
 import Login from "@/pages/Login/Login";
 import RestorePassword from "@/pages/Login/RestorePassword";
 import PrivateRoute from "./PrivateRoute";
+import CreateTask from "./pages/Tasks/CreateTask";
 
 export default function AppRouter() {
   return (
@@ -24,6 +26,8 @@ export default function AppRouter() {
       <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
       <Route path="/add-transaction" element={<PrivateRoute><AddTransaction /></PrivateRoute>} />
       <Route path="/day-expense" element={<PrivateRoute><DayExpense /></PrivateRoute>} />
+      <Route path="/tasks" element={<PrivateRoute><Tasks /></PrivateRoute>} />
+      <Route path="/create-task" element={<PrivateRoute><CreateTask /></PrivateRoute>} />
     </Routes>
   );
 }

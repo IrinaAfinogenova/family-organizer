@@ -11,7 +11,7 @@ import TogglerGroup from '@/components/TogglerGroup';
 import TransactionsList from './TransactionsList';
 import { CalendarView } from './CalendarView';
 import { periodTabs, MODES } from './tabs';
-import { useGetTransaction } from './useGetTransaction';
+import { useGetTransaction } from '../../hooks/useGetTransaction';
 
 // TODO support desktop view (button add)
 export default function Transactions() {
