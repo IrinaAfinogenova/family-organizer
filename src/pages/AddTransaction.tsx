@@ -18,6 +18,7 @@ const getTransactionType = (t: TranslationType): transactionType[] => ([
   {type: "expense", label: t("expense"), classNameSelected: "bg-red-300 text-white"},
 ]);
 
+// TODO use import { useForm } from "react-hook-form"; for error handling
 export default function AddTransaction() {
   const { t } = useTranslation();
   const { addTransaction, locale } = useStore();

@@ -5,3 +5,4 @@ export const REGISTER_URL = `${API}/auth/register`;
 export const GET_USER_URL = `${API}/auth/user`;
 
 export const CREATE_TRANSACTION_URL = `${API}/transactions/create`;
+export const GET_TRANSACTION_URL = `${API}/transactions`;

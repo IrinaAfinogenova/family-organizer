@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import PageContainer from '@/components/PageContainer';
 import TabsGroup from '@/components/TabsGroup';
 import { filterExpenseTransactions, filterIncomeTransactions, filterTransactionsByDateRange } from '@/utils/transactions';
-import { useStore } from '@/store';
 import { getDateRange } from '@/utils/date';
 import FloatingAddButton from '@/components/FloatingAddButton';
 import Button from '@/components/Button';
@@ -12,11 +11,12 @@ import TogglerGroup from '@/components/TogglerGroup';
 import TransactionsList from './TransactionsList';
 import { CalendarView } from './CalendarView';
 import { periodTabs, MODES } from './tabs';
+import { useGetTransaction } from './useGetTransaction';
 
 // TODO support desktop view (button add)
 export default function Transactions() {
   const { t } = useTranslation();
-  const { transactions } = useStore();
+  const { loading, transactions} = useGetTransaction();
   const [selectedTab, setSelectedTab] = useState<string>('month');
   const [mode, setMode] = useState<string>('list');
 
@@ -29,6 +29,10 @@ export default function Transactions() {
   const handleBudgetCalculate = () => {
     navigate(`/budget-calculate`);
   };
+
+  if (loading) {
+    return <p>fetching transactions</p>; //TODO add sceleton here
+  }
 
   return (
     <PageContainer hideBackButton linkTo="/calendar" title={t("my-budget")}>
