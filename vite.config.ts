@@ -14,4 +14,7 @@ export default defineConfig({
       "@": resolve(__dirname, "src")
     },
   },
+  build: {
+    outDir: "dist" // По умолчанию, совпадает с @vercel/static-build
+  }
 })
