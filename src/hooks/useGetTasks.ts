@@ -2,7 +2,6 @@ import { fetchTasks } from "@/api/actions/task";
 import { useStore } from "@/store";
 import { useEffect, useState } from "react";
 
-// TODO make in universal
 export const useGetTasks = () => {
   const { setTasks, tasks } = useStore();
   const [loading, setLoading] = useState(false);

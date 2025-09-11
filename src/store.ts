@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { ITask, ITransaction, IUser, languageType } from "@/definitions";
 
-interface AppState {
+export interface IAppState {
   transactions: ITransaction[];
   tasks: ITask[];
   locale: languageType;
@@ -15,7 +15,7 @@ interface AppState {
   addUser: (user: IUser) => void;
 }
 
-export const useStore = create<AppState>((set) => ({
+export const useStore = create<IAppState>((set) => ({
   transactions: [],
   tasks: [],
   locale: "ru-RU",
