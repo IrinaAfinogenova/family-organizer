@@ -8,6 +8,9 @@ import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreateTaskSchema, type ICreateTaskForm } from "@/schemas/create-task.schema";
+import { createTask } from "@/api/actions/task";
+import { useStore } from "@/store";
+import { useNavigate } from "react-router-dom";
 
 type transactionType = {type: TaskType; label: string};
 
@@ -29,8 +32,12 @@ export default function CreateTask() {
     defaultValues: initialFormState
   });
   const { t } = useTranslation();
+  const { addTask } = useStore();
+  const navigate = useNavigate();
   const handleCreateTask = async (forms: ICreateTaskForm) => {
-    console.log(forms);
+    const task = await createTask(forms);
+    addTask(task);
+    navigate(`/tasks`);
   };
 
   return (

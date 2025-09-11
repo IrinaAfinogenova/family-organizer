@@ -1,5 +1,7 @@
 export type TransactionType = 'income' | 'expense';
 
+export type TaskType = "once" | "daily" | "monthly";
+
 export interface ITransaction {
   id: string;
   type: TransactionType;
@@ -11,14 +13,21 @@ export interface ITransaction {
   updatedAt?: string; // ISO date string
 }
 
+export interface ITask {
+  id: string;
+  repeat: TaskType;
+  title: string;
+  note?: string;
+  completed: boolean;
+  date: string; // ISO date string
+}
+
 export interface IUser {
   id: string;
   name: string;
   email: string;
   createdAt: string;
 }
-
-export type TaskType = "once" | "daily" | "monthly";
 
 export type languageType = "ru-RU" | "en-US";
 
