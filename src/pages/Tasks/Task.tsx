@@ -1,21 +1,29 @@
+import { updateTasks } from "@/api/actions/task";
+import { useStore } from "@/store";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { IconCheck, IconChevronRight  } from '@tabler/icons-react';
 
 interface ITask {
+  id: string;
   title: string;
   completed?: boolean;
-  onToggle?: () => void;
   onEdit?: () => void;
 }
 
-export default function Task({ title, onToggle, completed = false, onEdit }: ITask) {
+export default function Task({ id, title, completed = false, onEdit }: ITask) {
+  const { updateTask } = useStore();
+  const handleOnToggle = async() => {
+    const task = await updateTasks(id, { completed: !completed });
+    updateTask(task);
+  };
+
   return (
     <div className="flex items-center justify-between p-2">
       <label className="flex items-center gap-4">
         <Checkbox.Root
           className="h-5 w-5 rounded border-[#d5e7d0] border-2 focus:outline-none"
           checked={completed}
-          onCheckedChange={onToggle}
+          onCheckedChange={handleOnToggle}
         >
           <Checkbox.Indicator>
             <IconCheck size={15} className="text-green-700"/>
@@ -27,9 +35,7 @@ export default function Task({ title, onToggle, completed = false, onEdit }: ITa
           <span className="text-[#5f994d] text-sm">Due Today</span> 
         </div>
       </label>
-      <div
-        onClick={onEdit}
-      >
+      <div onClick={onEdit}>
         <IconChevronRight size={32} stroke={1} className="text-gray-700"/>
       </div>
     </div>

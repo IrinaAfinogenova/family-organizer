@@ -21,8 +21,8 @@ export default function Tasks() {
           <Task
             key={task.id}
             title={task.title}
+            id={task.id}
             completed={task.completed}
-            onToggle={() => {}}
           />
         ))}
       </div>

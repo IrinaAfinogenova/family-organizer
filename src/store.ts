@@ -11,6 +11,7 @@ export interface IAppState {
   removeTransaction: (item: ITransaction) => void;
   setTasks: (items: ITask[]) => void;
   addTask: (item: ITask) => void;
+  updateTask: (item: ITask) => void;
   changeLocale: (lang: languageType) => void;
   addUser: (user: IUser) => void;
 }
@@ -25,6 +26,15 @@ export const useStore = create<IAppState>((set) => ({
   removeTransaction: (item) => set((state) => ({ transactions: state.transactions.filter((transaction) => transaction.id !== item.id) })),
   setTasks: (items) => set(() => ({ tasks: items })),
   addTask: (item) => set((state) => ({ tasks: state.tasks.concat([item]) })),
+  updateTask: (item) => set((state) => ({
+    tasks: state.tasks.map((currentItem) => {
+      if (currentItem.id === item.id) {
+        return item;
+      }
+
+      return currentItem;
+    })
+  })),
   changeLocale: (newLocale) => set(() => ({ locale: newLocale })),
   addUser: (user) => set(() => ({ user })),
 }));
