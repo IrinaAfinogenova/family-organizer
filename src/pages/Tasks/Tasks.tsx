@@ -3,6 +3,7 @@ import PageContainer from "@/components/PageContainer";
 import { useGetTasks } from "@/hooks/useGetTasks";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import Task from "./Task";
 
 export default function Tasks() {
   const { t } = useTranslation();
@@ -15,9 +16,16 @@ export default function Tasks() {
 
   return (
     <PageContainer hideBackButton linkTo="/calendar" title={t("task-list")}>
-      {tasks.map((task) => (
-        <div key={task.id}>{task.title}</div>
-      ))}
+      <div className="flex flex-col gap-2">
+        {tasks.map((task) => (
+          <Task
+            key={task.id}
+            title={task.title}
+            completed={task.completed}
+            onToggle={() => {}}
+          />
+        ))}
+      </div>
       <div className="flex flex-row gap-4 justify-end">
         <FloatingAddButton onClick={() => { navigate(`/create-task`); }}/>
       </div>
