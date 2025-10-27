@@ -1,11 +1,13 @@
 import { useTranslation } from "react-i18next";
-import { useStore } from "@/store";
 import PageContainer from "@/components/PageContainer";
 import { LanguageToggle } from "./LanguageToggle";
+import { useFetchUser } from "@/hooks/useFetchUser";
 
 export default function Settings() {
-  const {user} = useStore();
+  const { user, loading } = useFetchUser();
 	const {t} = useTranslation();
+
+  if (loading) return <p>Fetch user...</p>;
 
   return (
     <PageContainer hideBackButton title={t("profile")}>

@@ -16,9 +16,8 @@ interface IParamsRegister extends IParamsLogin {
   name: string;
 };
 
-export const loginUser = async (params: IParamsLogin): Promise<IUser> => 
+export const loginUser = async (params: IParamsLogin): Promise<{user: IUser; token: string}> => 
  request<IParamsLogin, ILoginResponse>(LOGIN_URL, { method: "POST", body: params })
-    .then(({ user }) => user);
 
 export const registerUser = async (params: IParamsRegister): Promise<void> => 
  request<IParamsRegister, void>(REGISTER_URL, { method: "POST", body: params });

@@ -29,8 +29,9 @@ export default function Login() {
 
   const handleLogin = async ({email, password}: ILoginForm) => {
     try {
-      const user = await loginUser({email, password});
+      const { user, token } = await loginUser({email, password});
       addUser(user);
+      localStorage.setItem("token", token);
       navigate(`/transactions`);
     } catch(err) {
       const error = err as ErrorApiType;
