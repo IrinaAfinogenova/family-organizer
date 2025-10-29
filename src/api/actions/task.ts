@@ -2,7 +2,7 @@ import type { ITask } from "@/definitions";
 import { request } from "../api";
 import { CREATE_TASK_URL, GET_TASKS_URL } from "../urls";
 
-type createTransactionParamsType = Omit<ITask, "id" | "date" | "completed">;
+type createTransactionParamsType = Omit<ITask, "id" | "completed">;
 type TaskUpdateParams = Partial<Omit<ITask, "id">>;
 
 export const createTask = (params: createTransactionParamsType): Promise<ITask> => {
@@ -10,8 +10,7 @@ export const createTask = (params: createTransactionParamsType): Promise<ITask> 
     method: "POST",
     body: {
       ...params,
-      repeat: "once",
-      date: (new Date()).toISOString(),
+      repeat: "once"
     }
   })
 };
