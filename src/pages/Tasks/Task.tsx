@@ -1,5 +1,6 @@
 import { updateTasks } from "@/api/actions/task";
 import { useStore } from "@/store";
+import { formatDateShortView } from "@/utils/date";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { IconCheck, IconChevronRight  } from '@tabler/icons-react';
 
@@ -7,10 +8,11 @@ interface ITask {
   id: string;
   title: string;
   completed?: boolean;
+  date: string;
   onEdit?: () => void;
 }
 
-export default function Task({ id, title, completed = false, onEdit }: ITask) {
+export default function Task({ id, title, completed = false, date, onEdit }: ITask) {
   const { updateTask } = useStore();
   const handleOnToggle = async() => {
     const task = await updateTasks(id, { completed: !completed });
@@ -31,8 +33,7 @@ export default function Task({ id, title, completed = false, onEdit }: ITask) {
         </Checkbox.Root>
         <div className="flex flex-col justify-center">
           <span className="text-[#111b0e] text-base">{title}</span>
-          {/* TODO make it as a prop */}
-          <span className="text-[#5f994d] text-sm">Due Today</span> 
+          <span className="text-[#5f994d] text-sm">Due {formatDateShortView(date)}</span> 
         </div>
       </label>
       <div onClick={onEdit}>

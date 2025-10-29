@@ -9,6 +9,7 @@ export const CreateTaskSchema = z.object({
     .min(3, "invalid-title-message"),
   note: z.string().optional(),
   repeat: RepeatEnum,
+  date: z.string().length(10, "invalid-date-message"),
 });
 
 export type ICreateTaskForm = z.infer<typeof CreateTaskSchema>;

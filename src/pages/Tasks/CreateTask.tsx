@@ -11,6 +11,7 @@ import { CreateTaskSchema, type ICreateTaskForm } from "@/schemas/create-task.sc
 import { createTask } from "@/api/actions/task";
 import { useStore } from "@/store";
 import { useNavigate } from "react-router-dom";
+import DateInput from "@/components/DateInput";
 
 type transactionType = {type: TaskType; label: string};
 
@@ -23,7 +24,8 @@ const getTaskType = (t: TranslationType): transactionType[] => ([
 const initialFormState = {
   title: "",
   note: "",
-  repeat: "once"
+  date: "",
+  repeat: "once",
 } as ICreateTaskForm;
 
 export default function CreateTask() {
@@ -31,8 +33,8 @@ export default function CreateTask() {
     resolver: zodResolver(CreateTaskSchema),
     defaultValues: initialFormState
   });
-  const { t } = useTranslation();
   const { addTask } = useStore();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const handleCreateTask = async (forms: ICreateTaskForm) => {
     const task = await createTask(forms);
@@ -48,7 +50,7 @@ export default function CreateTask() {
     >
       <div className="flex flex-col h-full justify-between">
         <div>
-          <Controller // TODO check docs (forward ref can help)
+          <Controller
             name="repeat"
             control={control}
             defaultValue="once"
@@ -59,6 +61,19 @@ export default function CreateTask() {
                 items={getTaskType(t)}
                 selectedItem={field.value}
                 onChange={field.onChange}
+              />
+            )}
+          />
+          <Controller
+            name="date"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <DateInput
+                {...field}
+                placeholder="DD.MM.YYYY"
+                hasError={!!errors.date}
+                errorMessage={errors.date?.message ? t(errors.date.message) : ""}
               />
             )}
           />

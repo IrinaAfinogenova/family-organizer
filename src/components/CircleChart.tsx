@@ -9,7 +9,7 @@ const CircleChart = ({ totalIncome, totalExpense, size = 150, strokeWidth = 15 }
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
 
-// Calculate the percentage of expenses relative to income
+  // Calculate the percentage of expenses relative to income
   const expensePercent = Math.min(totalExpense / totalIncome, 1);
   const expenseOffset = circumference * (1 - expensePercent);
 
@@ -25,16 +25,16 @@ const CircleChart = ({ totalIncome, totalExpense, size = 150, strokeWidth = 15 }
           fill="none"
         />
         <circle
-            cx={size / 2}
-            cy={size / 2}
-            r={radius}
-            stroke="#fca5a5" 
-            strokeWidth={strokeWidth}
-            fill="none"
-            strokeDasharray={circumference}
-            strokeDashoffset={expenseOffset}
-            strokeLinecap="round"
-            transform={`rotate(-90 ${size / 2} ${size / 2})`} // Rotate to start from the top
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="#fca5a5" 
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeDasharray={circumference}
+          strokeDashoffset={expenseOffset}
+          strokeLinecap="round"
+          transform={`rotate(-90 ${size / 2} ${size / 2})`} // Rotate to start from the top
         />
       </svg>
     </div>

@@ -22,6 +22,7 @@ export default function Tasks() {
             key={task.id}
             title={task.title}
             id={task.id}
+            date={task.date}
             completed={task.completed}
           />
         ))}

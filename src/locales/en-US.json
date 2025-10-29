@@ -42,5 +42,8 @@
   "description": "Description",
   "once": "Once",
   "daily": "Daily",
-  "monthly": "Monthly"
+  "monthly": "Monthly",
+  "DD.MM.YYYY": "DD.MM.YYYY",
+  "invalid-date-message": "Please enter a valid date in DD.MM.YYYY format",
+  "invalid-title-message": "Title must be longer than 3 characters"
 }
